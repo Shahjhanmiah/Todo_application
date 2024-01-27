@@ -2,17 +2,28 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
+
+
+
+
+
+
 const app = express();
 const port = 3001;
 
 app.use(cors());
 app.use(express.json());
 
+
 //  Mongodb atals 
-mongoose.connect('mongodb://localhost:27017/taskdb', {
+mongoose.connect('mongodb://localhost:27017/yourdatabase', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  // Remove deprecated options
+  // usefindandmodify: false,
+  // usecreateindex: false,
 });
+
 
 const taskSchema = new mongoose.Schema({
   title: String,
