@@ -1,13 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-
-
-
-
-
-
-
 const app = express();
 const port = 3001;
 
@@ -16,12 +9,15 @@ app.use(express.json());
 
 
 //  Mongodb atals 
-const MongoClient = require('mongodb').MongoClient;
-const url = 'mongodb://localhost:27017/mydatabase';
+mongoose.connect('mongodb://localhost:27017/yourdatabase', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  // Remove deprecated options
+  // usefindandmodify: false,
+  // usecreateindex: false,
+});
 
-const client = new MongoClient(url);
 
-client.connect()
 const taskSchema = new mongoose.Schema({
   title: String,
   description: String,
