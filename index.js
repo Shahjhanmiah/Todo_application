@@ -16,15 +16,12 @@ app.use(express.json());
 
 
 //  Mongodb atals 
-mongoose.connect('mongodb://localhost:27017/yourdatabase', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  // Remove deprecated options
-  // usefindandmodify: false,
-  // usecreateindex: false,
-});
+const MongoClient = require('mongodb').MongoClient;
+const url = 'mongodb://localhost:27017/mydatabase';
 
+const client = new MongoClient(url);
 
+client.connect()
 const taskSchema = new mongoose.Schema({
   title: String,
   description: String,
