@@ -9,9 +9,10 @@ app.use(cors());
 app.use(express.json());
 
 //  Mongodb atals 
-mongoose.connect('mongodb://localhost:27017/your-database', { useNewUrlParser: true });
-mongoose.connect('mongodb://localhost:27017/your-database');
-
+mongoose.connect('mongodb://localhost:27017/taskdb', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 const taskSchema = new mongoose.Schema({
   title: String,
